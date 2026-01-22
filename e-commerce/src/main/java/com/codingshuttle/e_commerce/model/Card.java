@@ -2,10 +2,7 @@ package com.codingshuttle.e_commerce.model;
 
 import com.codingshuttle.e_commerce.Enum.CARDTYPE;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
@@ -16,6 +13,7 @@ import java.util.Date;
 @Table(name = "card")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Card {
 
     @Id
@@ -29,6 +27,7 @@ public class Card {
 
     Date  validTill;
 
+    @Enumerated(EnumType.STRING)
     CARDTYPE cardtype;
 
     @ManyToOne

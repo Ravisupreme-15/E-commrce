@@ -2,10 +2,7 @@ package com.codingshuttle.e_commerce.model;
 
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.Order;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.sound.sampled.Port;
@@ -16,6 +13,7 @@ import javax.sound.sampled.Port;
 @Table(name = "item")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Item {
 
     @Id

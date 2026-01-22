@@ -1,12 +1,8 @@
 package com.codingshuttle.e_commerce.model;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.cache.interceptor.CacheAspectSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +10,10 @@ import java.util.List;
 @Entity
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name = "card")
+@Table(name = "cart")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Cart {
 
     @Id
@@ -26,7 +23,8 @@ public class Cart {
     int cartTotal;
 
     @OneToOne
-    Customer Customer;
+    @JoinColumn
+    Customer customer;
 
 
     @OneToMany(mappedBy = "cart" , cascade = CascadeType.ALL)
